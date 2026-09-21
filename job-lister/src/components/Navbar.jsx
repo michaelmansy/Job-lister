@@ -28,7 +28,7 @@ export default function Navbar(){
                 <a
                   href="/index.html"
                   className="text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
-                  >Home</a
+                  >Homeeee</a
                 >
                 <a
                   href="/jobs.html"
