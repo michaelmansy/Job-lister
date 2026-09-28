@@ -1,12 +1,33 @@
-import jobs from '../jobs.json'
+import { useState, useEffect } from 'react';
 import JobListing from './JobListing';
 
 export default function JobListings({isHome = false}) {
 
+    const [jobs, setJobs] = useState([]);
+
+    // show a loading spinner while its fetching data or if it fails
+    const [loading, setLoading] = useState(true);
+
     // jobs.json has 6 jobs we will use only 3 to show
     
-        const jobList = isHome ? jobs.slice(0, 3) : jobs;
+        //we no longer need the next line because we now use useState and useEffect
+        // const jobList = isHome ? jobs.slice(0, 3) : jobs;     
 
+    useEffect( () => {
+        const fetchJobs = async () => {
+            try{
+                const res = await fetch('http://localhost:8000/jobs');
+                const data = await res.json();
+                setJobs(data);
+            }catch(error){
+                console.log("Error while fetching data", error);
+            }finally{
+                setLoading(false);
+            }
+        }
+
+        fetchJobs();
+    }, []);
    
 
     return (
@@ -16,9 +37,15 @@ export default function JobListings({isHome = false}) {
                 {isHome ? 'Recent Jobs' : 'Browse All Jobs'}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {jobList.map((job) => (
+                    {/* adding the loading spinner */}
+                    {loading ? (<h2>Loading....</h2>) : (
+
+                    <>
+                    {jobs.map((job) => (
                         <JobListing key={job.id} job={job}/>
                     ))}
+                    </>
+                    )}
                         
                 </div>
             </div>
