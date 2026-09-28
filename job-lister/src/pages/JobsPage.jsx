@@ -1,5 +1,9 @@
+import JobListings from '../components/JobListings'
+
 export default function JobsPage() {
     return (
-        <div>Jobs Page</div>
+        <section>
+            <JobListings />
+        </section>
     )
 }
