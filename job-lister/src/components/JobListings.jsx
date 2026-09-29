@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import JobListing from './JobListing';
+import Spinner from './Spinner';
 
 export default function JobListings({isHome = false}) {
 
@@ -38,7 +39,7 @@ export default function JobListings({isHome = false}) {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {/* adding the loading spinner */}
-                    {loading ? (<h2>Loading....</h2>) : (
+                    {loading ? (<Spinner loading={loading}/>) : (
 
                     <>
                     {jobs.map((job) => (
