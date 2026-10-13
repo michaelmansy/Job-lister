@@ -1,4 +1,19 @@
+import {useState} from 'react'
+
 export default function AddJobPage(){
+
+    // will create a useState for each field in our form
+    const[title, setTitle] = useState('');
+    const[type, setType] = useState('');
+    const[location, setLocation] = useState('');
+    const[description, setDescription] = useState('');
+    const[salary, setSalary] = useState('');
+    const[companyName, setcompanyName] = useState('');
+    const[companyDescription, setCompanyDescription] = useState('');
+    const[contactEmail, setContactEmail] = useState('');
+    const[contactPhone, setContactPhone] = useState('');
+
+
     return(
     <section className="bg-indigo-50">
         <div className="container m-auto max-w-2xl py-24">
@@ -17,6 +32,9 @@ export default function AddJobPage(){
                     name="type"
                     className="border rounded w-full py-2 px-3"
                     required
+                    value={type}
+                    // event params contains the value of the selected option, we will use this to update our state
+                    onChange={(e) => setType(e.target.value)}
                 >
                     <option value="Full-Time">Full-Time</option>
                     <option value="Part-Time">Part-Time</option>
