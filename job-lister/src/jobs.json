@@ -99,23 +99,10 @@
       "id": "CoZj2ZZuMe8"
     },
     {
-      "title": "sds",
-      "type": "Full-Time",
-      "location": "ds",
-      "description": "sd",
-      "salary": "Under $50K",
-      "company": {
-        "name": "sd",
-        "description": "sd",
-        "contactEmail": "test@test.com",
-        "contactPhone": "ww"
-      },
-      "id": "fnp1Bfhgvkk"
-    },
-    {
+      "id": "ouEC264FHvo",
       "title": "dsa",
       "type": "Full-Time",
-      "location": "sd",
+      "location": "sd55555555555555",
       "description": "ds",
       "salary": "Under $50K",
       "company": {
@@ -123,8 +110,7 @@
         "description": "sd",
         "contactEmail": "test@test.com",
         "contactPhone": "ss"
-      },
-      "id": "ouEC264FHvo"
+      }
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

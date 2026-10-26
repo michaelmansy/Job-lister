@@ -48,6 +48,18 @@ const deleteJob = async (id) => {
 };
 
 
+// Update Job function that will be passed down to the EditJobPage component
+const updateJob = async (updatedJob) => {
+  const res = await fetch(`/api/jobs/${updatedJob.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(updatedJob)
+  });
+  return await res.json();
+}
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -55,7 +67,7 @@ const router = createBrowserRouter(
       <Route index element={<HomePage />} />
       <Route path='/jobs' element={<JobsPage />} />
       <Route path='/add-job' element={<AddJobPage addJobSubmit={addJob}/>} />
-      <Route path='/edit-job/:id' element={<EditJobPage />} loader={jobLoader} />
+      <Route path='/edit-job/:id' element={<EditJobPage updateJobSubmit={updateJob} />} loader={jobLoader} />
       <Route path='/jobs/:id' element={<JobPage deleteJob={deleteJob}/>} loader={jobLoader} />
       <Route path='*' element={<NotFoundPage />} />
     </Route>
